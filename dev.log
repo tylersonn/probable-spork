@@ -1,0 +1,21 @@
+
+> nextn@0.1.0 dev
+> next dev --turbopack -p 9002
+
+   ▲ Next.js 15.3.8 (Turbopack)
+   - Local:        http://localhost:9002
+   - Network:      http://192.168.0.159:9002
+
+ ✓ Starting...
+Slow filesystem detected. If D:\wayout\probable-spork\.next is a network drive, consider moving it to a local folder. If you have an antivirus enabled, consider excluding your project directory.
+ ✓ Ready in 18.6s
+ ○ Compiling / ...
+ ✓ Compiled / in 31.5s
+ ○ Compiling /_error ...
+ ✓ Compiled /_error in 7.4s
+ GET / 500 in 49883ms
+ GET / 500 in 1427ms
+ GET / 500 in 49974ms
+ GET / 500 in 788ms
+ ✓ Compiled instrumentation Node.js in 200ms
+ ✓ Compiled instrumentation Edge in 433ms
