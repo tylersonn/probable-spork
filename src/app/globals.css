@@ -88,3 +88,70 @@
     background-size: 24px 24px;
   }
 }
+
+
+
+
+
+/* =========================
+Theme Gradient Utilities
+========================= */
+
+/* Gradient text using theme colors */
+.text-theme-gradient {
+  background: linear-gradient(
+    90deg,
+    hsl(var(--foreground)) 0%,
+    hsl(var(--primary)) 50%,
+    hsl(var(--muted-foreground)) 100%
+  );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+.text-theme-gradient-strong {
+  background: linear-gradient(
+    90deg,
+    hsl(var(--foreground)),
+    hsl(var(--primary))
+  );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+
+/* GRADIENT BUTTTONS */
+
+.btn-thick-obsidian {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+
+  /* Text */
+  color: hsl(var(--primary-foreground));
+
+  /* Subtle Gradient on Black */
+  background: linear-gradient(
+    to bottom,
+    hsl(var(--ring)) 0%,
+    hsl(var(--primary)) 100%
+  );
+
+  /* The Physical Thickness */
+  border: 1px solid hsl(var(--primary));
+}
+
+.btn-thick-obsidian:active {
+  transform: translateY(6px);
+  box-shadow: none;
+}

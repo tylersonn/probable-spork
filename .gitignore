@@ -48,3 +48,5 @@ firestore-debug.log
 src/instrumentation.ts
 dev.err.log
 package-lock.json
+
+temp/

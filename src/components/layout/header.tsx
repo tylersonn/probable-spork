@@ -1,64 +1,89 @@
 "use client";
 
-import Link from 'next/link';
-import { Menu } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import { cn } from '@/lib/utils';
+import Link from "next/link";
+import { Menu, Globe, Wallet } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 export function Header() {
   const navItems = [
-    { name: 'Features', href: '#' },
-    { name: 'Pricing', href: '#' },
-    { name: 'Testimonials', href: '#' },
+    { name: "Whitepaper", href: "#" },
+    { name: "Tokenomics", href: "#" },
+    { name: "Roadmap", href: "#" },
+    { name: "Blog", href: "#" },
   ];
 
   return (
-    <header className="sticky top-0 z-50 w-full py-4 px-4 sm:px-6 lg:px-8 bg-background/95 backdrop-blur-sm grid-pattern">
-      <div className="container mx-auto flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-1">
-          <span className="text-2xl font-bold text-foreground">Genesis</span>
-          {/* <span className="text-2xl font-normal text-foreground">sis</span> */}
+    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur-sm grid-pattern">
+      <div className="mx-auto flex h-16 max-w-7xl items-center px-4 sm:px-6 lg:px-8">
+        {/* Logo */}
+        <Link href="/" className="flex items-center gap-2">
+          <div className="h-8 w-8 rounded-full bg-gradient-to-br from-blue-500 to-purple-600" />
+          <span className="text-lg font-semibold text-white text-theme-gradient-strong">TOKENS</span>
         </Link>
-        <nav className="hidden md:flex items-center justify-center flex-1">
-          <ul className="flex gap-8">
+
+        {/* Desktop Nav */}
+        <nav className="hidden md:flex flex-1 justify-center">
+          <ul className="flex items-center gap-8">
             {navItems.map((item) => (
               <li key={item.name}>
-                <Link href={item.href} className="text-sm font-medium text-secondary-foreground hover:text-foreground transition-colors">
+                <Link href={item.href} className="text-sm text-slate-300 hover:text-white transition-colors">
                   {item.name}
                 </Link>
               </li>
             ))}
           </ul>
         </nav>
-        <div className="hidden md:block">
-          <Button className="rounded-full bg-foreground text-background hover:bg-foreground/90">Sign Up</Button>
+
+        {/* Right Actions */}
+        <div className="hidden md:flex items-center gap-4">
+          {/* Language */}
+          <button className="flex items-center gap-1 text-slate-300 hover:text-white transition">
+            <Globe className="h-4 w-4" />
+            <span className="text-sm">EN</span>
+          </button>
+
+          {/* Connect Wallet */}
+          <Button className="btn-thick-obsidian px-6 hover:opacity-90 flex items-center gap-2">
+            <Wallet className="h-4 w-4" />
+            Connect Wallet
+          </Button>
         </div>
-        <div className="md:hidden">
+
+        {/* Mobile Menu */}
+        <div className="ml-auto md:hidden">
           <Sheet>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon">
-                <Menu className="h-6 w-6" />
-                <span className="sr-only">Toggle menu</span>
+                <Menu className="h-6 w-6 text-white" />
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-[300px] sm:w-[400px] bg-background">
-              <nav className="flex flex-col h-full">
-                <div className="flex items-center justify-between border-b pb-4">
-                  <Link href="/" className="flex items-center gap-1">
-                    <span className="text-2xl font-bold text-foreground">Point</span>
-                    <span className="text-2xl font-normal text-foreground">er</span>
-                  </Link>
+
+            <SheetContent side="right" className="bg-[#020617] border-l border-white/10">
+              <nav className="flex h-full flex-col">
+                <div className="mb-8 flex items-center gap-2">
+                  <div className="h-8 w-8 rounded-full bg-gradient-to-br from-blue-500 to-purple-600" />
+                  <span className="text-lg font-semibold text-white">BMIC</span>
                 </div>
-                <div className="flex flex-col gap-4 py-8">
+
+                <div className="flex flex-col gap-6">
                   {navItems.map((item) => (
-                    <Link key={item.name} href={item.href} className="text-lg font-medium text-foreground hover:text-primary transition-colors text-center">
+                    <Link key={item.name} href={item.href} className="text-base text-slate-300 hover:text-white transition">
                       {item.name}
                     </Link>
                   ))}
                 </div>
-                <div className="mt-auto">
-                  <Button className="w-full rounded-full bg-foreground text-background hover:bg-foreground/90 text-lg">Sign Up</Button>
+
+                <div className="mt-auto flex flex-col gap-4">
+                  <Button variant="ghost" className="flex items-center gap-2 bg-foreground text-background hover:bg-foreground/95 hover:text-background">
+                    <Globe className="h-4 w-4" />
+                    EN
+                  </Button>
+
+                  <Button className="btn-thick-obsidian px-6 hover:opacity-90 flex items-center gap-2">
+                    <Wallet className="h-4 w-4" />
+                    Connect Wallet
+                  </Button>
                 </div>
               </nav>
             </SheetContent>
